@@ -1,5 +1,40 @@
-<h3>{{question}}</h3>
+<h2>{{question}}</h2>
 
-<h5>Asked by: {{author}}</h5>
-<br>
-<h4>{{description}}</h4>
+{{#if isEditing}}
+  <form>
+    <div class="form-group">
+      <label for="question">Question:</label>
+      {{input id="question" class="form-control" value=question}}
+    </div>
+    <div class="form-group">
+      <label for="author">Asked By:</label>
+      {{input id="author" class="form-control" value=author}}
+    </div>
+    <div class="form-group">
+      <label for="description">Add a Description:</label>
+      {{textarea id="description" class="form-control" value=description rows="3"}}
+    </div>
+
+    <button class="btn btn-primary" {{action 'save'}}>Save Changes</button>
+  </form>
+
+{{else}}
+  <p>Asked by: {{author}}</p>
+
+  <h4>{{description}}</h4>
+
+  <br>
+  <button class="btn btn-primary" {{action 'edit'}}>Edit Question</button>
+  <button class="btn btn-danger" {{action 'delete'}}>Delete Question</button>
+{{/if}}
+
+<h2>Answers</h2>
+
+{{#each answers}}
+  <p>{{answer}}</p>
+  <p> - {{author}}</p>
+{{/each}}
+
+<p>{{#link-to 'new-answer' this.id class="btn btn-default"}}New Answer{{/link-to}}</p>
+
+{{outlet}}

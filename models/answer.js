@@ -1,6 +1,6 @@
 Messageboard.Answer = DS.Model.extend({
   answer: DS.attr(),
-  author: DS.attr();
+  author: DS.attr(),
 
-  answer: DS.belongsto('question', {async: true})
+  answer: DS.belongsTo('question', {async: true})
 });
