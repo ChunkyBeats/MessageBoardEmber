@@ -12,6 +12,11 @@ Messageboard.QuestionController = Ember.ObjectController.extend({
         this.get('model').destroyRecord();
         this.transitionToRoute('questions');
       }
+    },
+    deleteanswer: function() {
+      if(confirm('Are You Sure?')) {
+        this.get('answer').destroyRecord();
+      }
     }
   }
 });
