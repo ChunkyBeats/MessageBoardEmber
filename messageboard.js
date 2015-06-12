@@ -1,0 +1,3 @@
+Messageboard = Ember.Application.create({
+
+});
