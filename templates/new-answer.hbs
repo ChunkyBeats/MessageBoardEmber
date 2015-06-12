@@ -1,0 +1,13 @@
+<h2>Provide Answer:</h2>
+
+<form>
+  <div class="form-group">
+    <label for="author">Answered By:</label>
+    {{input id="author" class="form-control" value=author}}
+  </div>
+  <div class="form-group">
+    <label for="answer">Response:</label>
+    {{textarea id="answer" class="form-control" value=answer rows="5"}}
+  </div>
+  <button class="btn btn-primary" {{action 'save'}}>Submit Answer</button>
+</form>
